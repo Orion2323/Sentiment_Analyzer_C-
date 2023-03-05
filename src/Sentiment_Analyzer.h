@@ -9,7 +9,7 @@
 
 class Sentiment_Analyzer {
 private:
-    std::map<std::string, int> classifier;
+    std::map<DSString, int> classifier;
     std::vector<Tweet> tweetList;
 public:
     explicit Sentiment_Analyzer();

@@ -53,6 +53,7 @@ void Sentiment_Analyzer::read_training_file(const char* file) {
         delete[] senVal;
         delete[] ID;
         delete[] date;
+        delete[] query;
         delete[] dummy;
         delete[] user;
         delete[] tweet;
@@ -64,10 +65,28 @@ void Sentiment_Analyzer::read_training_file(const char* file) {
 // make classifier
 void Sentiment_Analyzer::word_classifier() {
     for (const Tweet& t: this->tweetList) {
-        std::cout << t.getTweet().c_str() << std::endl;
+        // tokenize tweet into words
+        std::vector<DSString> tokens = t.getTweet().tokenization();
+
+        // add words to classifier
+        for (const DSString& word : tokens) {
+            if (word.getSize() > 2) {
+                // check if word exists on map
+                if (this->classifier.count(word) == 0) {
+                    this->classifier.insert({word, 0});
+                }
+
+                // check if word is positive or negative
+                if (t.getSen() == 0) {
+                    this->classifier[word]--;
+                } else {
+                    this->classifier[word]++;
+                }
+           }
+        }
     }
 
-
+    std::cout << this->classifier.size() << std::endl;
 }
 
 void Sentiment_Analyzer::read_testing_file() {
