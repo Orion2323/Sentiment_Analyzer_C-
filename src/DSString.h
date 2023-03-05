@@ -33,6 +33,54 @@ public:
     DSString& operator=(const DSString& str);
 
     /**
+     * Equality operator method
+     *
+     * Method for checking whether DSString and char* are equal
+     *
+     * @param str char* to compare
+     * @return bool whether DSString and char* are the same
+     *
+     */
+    bool operator==(const char* str) const;
+
+    /**
+     * Equality operator method
+     *
+     * Method for checking whether both DSStrings are equal or not
+     *
+     * @param s DSString to compare
+     * @return bool whether both DSStrings are the same or not
+     *
+     */
+     bool operator==(const DSString& s) const;
+
+     /**
+      * Less than operator
+      *
+      * Method to check if first DSString is less than second DSString
+      * @param s DSString to compare
+      * @return bool whether first DSString is less than second DSString
+      */
+     bool operator<(const DSString& s) const;
+
+     /**
+      * Greater than operator
+      *
+      * Method to check if first DSString is greater than second DSString
+      *
+      * @param s DSString to compare
+      * @return bool whether first DSString is greater than second DSString
+      */
+     bool operator>(const DSString& s) const;
+
+    /**
+    * Subscript operator to access a particular character of a DSString object
+    * @return the character requested by reference
+    */
+    char& operator[] (const int& index);
+
+
+    /**
      * Method for tokenizing all words in DSString object
      *
      */
