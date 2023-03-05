@@ -7,4 +7,7 @@ add_executable(Sentiment_Analyzer_C_
         src/main.cpp
         src/Sentiment_Analyzer.cpp
         src/DSString.cpp
-        src/Tweet.cpp)
+        src/Tweet.cpp
+        src/catch.hpp
+        src/test.cpp
+        )
