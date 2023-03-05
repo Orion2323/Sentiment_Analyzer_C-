@@ -1,6 +1,7 @@
-#include <iostream>
+#define CATCH_CONFIG_RUNNER
 
 #include "Sentiment_Analyzer.h"
+#include "catch.hpp"
 
 using namespace std;
 
@@ -14,6 +15,8 @@ int main(int argc, char** argv) {
         }
 
         Sentiment_Analyzer s = Sentiment_Analyzer(argVec);
+    } else {
+        Catch::Session().run();
     }
 
     return 0;
